@@ -1,0 +1,17 @@
+plugins {
+    kotlin("jvm")
+    kotlin("plugin.allopen")
+
+    // The following line allows to load io.gatling.gradle plugin and directly apply it
+    id("io.gatling.gradle") version "3.9.5"
+}
+
+gatling {
+    // WARNING: options below only work when logback config file isn't provided
+    logLevel = "WARN" // logback root level
+    logHttp = io.gatling.gradle.LogHttp.NONE // set to 'ALL' for all HTTP traffic in TRACE, 'FAILURES' for failed HTTP traffic in DEBUG
+}
+
+repositories {
+    mavenCentral()
+}
